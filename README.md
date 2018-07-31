@@ -4,8 +4,8 @@ This repository contains pairs of Python TensorFlow programs and Swift TensorFlo
 
 ## Graphs with the same ops
 
-- [axpy_unrolled]: Straight-line `Ax+b`
-- [axpy_loop]: `Ax+b` in a `while` loop
+- [axpy_unrolled](axpy_unrolled): Straight-line `Ax+b`
+- [axpy_loop](axpy_loop): `Ax+b` in a `while` loop
 
 |                  |  Python |   Swift |
 |------------------|---------|---------|
@@ -16,8 +16,7 @@ This repository contains pairs of Python TensorFlow programs and Swift TensorFlo
 
 Graph Program Extraction currently does not generate mutable variables in the TensorFlow graph for `var` declarations. Instead, each mutation of `var` in Swift source code gets lowered to producing a new value.
 
-- [parameter_update]: Straight-line parameter update
-- [parameter_update_loop]: Parameter update within a loop
+- [parameter_update](parameter_update): Straight-line parameter update
 
 |                  |  Python |   Swift |
 |------------------|---------|---------|
