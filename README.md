@@ -2,7 +2,9 @@
 
 This repository contains pairs of Python TensorFlow programs and Swift TensorFlow programs for a head-to-head performance comparison.
 
-## Graphs with the same ops
+## Graphs with the same ops and control flow constructs
+
+Basic operations are being tested here: matrix multiplication, convolution and loops.
 
 - [axpy_unrolled](axpy_unrolled): Straight-line `Ax+b`
 - [axpy_loop](axpy_loop): `Ax+b` in a `while` loop
@@ -14,7 +16,7 @@ This repository contains pairs of Python TensorFlow programs and Swift TensorFlo
 
 ## `tf.Variable` vs. functional
 
-Graph Program Extraction currently does not generate mutable variables in the TensorFlow graph for `var` declarations. Instead, each mutation of `var` in Swift source code gets lowered to producing a new value.
+Graph Program Extraction currently does not generate mutable variables in the TensorFlow graph for `var` declarations. Instead, each mutation of `var` in Swift source code gets lowered to producing a new value. In Python, however, `tf.Variable` is used everywhere and may be highly optimized. Here we compare purely functional parameter updates with mutation-based parameter updates.
 
 - [parameter_update](parameter_update): Straight-line parameter update
 
