@@ -1,0 +1,324 @@
+node {
+  name: "Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+            size: 64
+          }
+          dim {
+            size: 512
+          }
+        }
+        float_val: 0.20000000298
+      }
+    }
+  }
+}
+node {
+  name: "Const_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+            size: 512
+          }
+          dim {
+            size: 512
+          }
+        }
+        float_val: 0.20000000298
+      }
+    }
+  }
+}
+node {
+  name: "Const_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+            size: 512
+          }
+        }
+        float_val: 0.20000000298
+      }
+    }
+  }
+}
+node {
+  name: "While/input_0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "While"
+  op: "While"
+  input: "While/input_0"
+  input: "Const"
+  input: "Const_1"
+  input: "Const_2"
+  attr {
+    key: "T"
+    value {
+      list {
+        type: DT_INT32
+        type: DT_FLOAT
+        type: DT_FLOAT
+        type: DT_FLOAT
+      }
+    }
+  }
+  attr {
+    key: "body"
+    value {
+      func {
+        name: "Body_pNuPadtEyAU"
+      }
+    }
+  }
+  attr {
+    key: "cond"
+    value {
+      func {
+        name: "Cond_99egmVe3oiY"
+      }
+    }
+  }
+}
+library {
+  function {
+    signature {
+      name: "Cond_99egmVe3oiY"
+      input_arg {
+        name: "i"
+        type: DT_INT32
+      }
+      input_arg {
+        name: "x"
+        type: DT_FLOAT
+      }
+      input_arg {
+        name: "w"
+        type: DT_FLOAT
+      }
+      input_arg {
+        name: "b"
+        type: DT_FLOAT
+      }
+      output_arg {
+        name: "less"
+        type: DT_BOOL
+      }
+    }
+    node_def {
+      name: "Less/y"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+            }
+            int_val: 1000
+          }
+        }
+      }
+    }
+    node_def {
+      name: "Less"
+      op: "Less"
+      input: "i"
+      input: "Less/y:output:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    ret {
+      key: "less"
+      value: "Less:z:0"
+    }
+  }
+  function {
+    signature {
+      name: "Body_pNuPadtEyAU"
+      input_arg {
+        name: "i"
+        type: DT_INT32
+      }
+      input_arg {
+        name: "x"
+        type: DT_FLOAT
+      }
+      input_arg {
+        name: "w_0"
+        type: DT_FLOAT
+      }
+      input_arg {
+        name: "b_0"
+        type: DT_FLOAT
+      }
+      output_arg {
+        name: "add"
+        type: DT_INT32
+      }
+      output_arg {
+        name: "add_1"
+        type: DT_FLOAT
+      }
+      output_arg {
+        name: "w"
+        type: DT_FLOAT
+      }
+      output_arg {
+        name: "b"
+        type: DT_FLOAT
+      }
+    }
+    node_def {
+      name: "add/y"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+            }
+            int_val: 1
+          }
+        }
+      }
+    }
+    node_def {
+      name: "add_0"
+      op: "Add"
+      input: "i"
+      input: "add/y:output:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node_def {
+      name: "MatMul"
+      op: "BatchMatMul"
+      input: "x"
+      input: "w_0"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "adj_x"
+        value {
+          b: false
+        }
+      }
+      attr {
+        key: "adj_y"
+        value {
+          b: false
+        }
+      }
+    }
+    node_def {
+      name: "add_1_0"
+      op: "Add"
+      input: "MatMul:output:0"
+      input: "b_0"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    ret {
+      key: "add"
+      value: "add_0:z:0"
+    }
+    ret {
+      key: "add_1"
+      value: "add_1_0:z:0"
+    }
+    ret {
+      key: "b"
+      value: "b_0"
+    }
+    ret {
+      key: "w"
+      value: "w_0"
+    }
+  }
+}
+versions {
+  producer: 26
+  min_consumer: 12
+}

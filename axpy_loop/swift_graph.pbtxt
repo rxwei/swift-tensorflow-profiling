@@ -1,0 +1,599 @@
+node {
+  name: "tfc_func_S9axpy_loop4mainyyF.tf"
+  op: "S9axpy_loop4mainyyF.tf_CPU.device_partition"
+  device: "/device:CPU:0"
+}
+library {
+  function {
+    signature {
+      name: "S9axpy_loop4mainyyF.tf_CPU.device_partition"
+      is_stateful: true
+    }
+    node_def {
+      name: "op/main...16.6_/device_CPU_0"
+      op: "Const"
+      device: "/device:CPU:0"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.2
+          }
+        }
+      }
+    }
+    node_def {
+      name: "op/main.._1.16.6_/device_CPU_0"
+      op: "Const"
+      device: "/device:CPU:0"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "@\000\000\000\000\002\000\000"
+          }
+        }
+      }
+    }
+    node_def {
+      name: "op_/device_CPU_0"
+      op: "Fill"
+      input: "op/main.._1.16.6_/device_CPU_0:output:0"
+      input: "op/main...16.6_/device_CPU_0:output:0"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "index_type"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node_def {
+      name: "op_/device_CPU_0_0"
+      op: "Const"
+      device: "/device:CPU:0"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "\000\002\000\000\000\002\000\000"
+          }
+        }
+      }
+    }
+    node_def {
+      name: "op_/device_CPU_0_1"
+      op: "Fill"
+      input: "op_/device_CPU_0_0:output:0"
+      input: "op/main...16.6_/device_CPU_0:output:0"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "index_type"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node_def {
+      name: "op_/device_CPU_0_2"
+      op: "Const"
+      device: "/device:CPU:0"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+            }
+            int64_val: 1
+          }
+        }
+      }
+    }
+    node_def {
+      name: "op_/device_CPU_0_3"
+      op: "Const"
+      device: "/device:CPU:0"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            int_val: 512
+          }
+        }
+      }
+    }
+    node_def {
+      name: "op_/device_CPU_0_4"
+      op: "Fill"
+      input: "op_/device_CPU_0_3:output:0"
+      input: "op/main...16.6_/device_CPU_0:output:0"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "index_type"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node_def {
+      name: "op_/device_CPU_0_5"
+      op: "Const"
+      device: "/device:CPU:0"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+            }
+            int64_val: 0
+          }
+        }
+      }
+    }
+    node_def {
+      name: "op_/device_CPU_0_6"
+      op: "Const"
+      device: "/device:CPU:0"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+            }
+            int64_val: 1000
+          }
+        }
+      }
+    }
+    node_def {
+      name: "op/main.._13.16.13_/device_CPU_0"
+      op: "While"
+      input: "op_/device_CPU_0:output:0"
+      input: "op_/device_CPU_0_5:output:0"
+      input: "op_/device_CPU_0_1:output:0"
+      input: "op_/device_CPU_0_4:output:0"
+      input: "op_/device_CPU_0_2:output:0"
+      input: "op_/device_CPU_0_6:output:0"
+      attr {
+        key: "T"
+        value {
+          list {
+            type: DT_FLOAT
+            type: DT_INT64
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_INT64
+            type: DT_INT64
+          }
+        }
+      }
+      attr {
+        key: "body"
+        value {
+          func {
+            name: "whilebody/main.._11.16.13_/device_CPU_0"
+          }
+        }
+      }
+      attr {
+        key: "cond"
+        value {
+          func {
+            name: "whilecond/main.._12.16.13_/device_CPU_0"
+          }
+        }
+      }
+    }
+    node_def {
+      name: "op/main.._14.16.6_/device_CPU_0"
+      op: "MatMul"
+      input: "op/main.._13.16.13_/device_CPU_0:output:0"
+      input: "op_/device_CPU_0_1:output:0"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "transpose_a"
+        value {
+          b: false
+        }
+      }
+      attr {
+        key: "transpose_b"
+        value {
+          b: false
+        }
+      }
+    }
+    node_def {
+      name: "op/main.._15.16.6_/device_CPU_0"
+      op: "Add"
+      input: "op/main.._14.16.6_/device_CPU_0:product:0"
+      input: "op_/device_CPU_0_4:output:0"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "op/main.._16.16.6_/device_CPU_0"
+      op: "Add"
+      input: "op/main.._13.16.13_/device_CPU_0:output:1"
+      input: "op_/device_CPU_0_2:output:0"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+    }
+    node_def {
+      name: "op/main.._17.16.6_/device_CPU_0"
+      op: "Less"
+      input: "op/main.._16.16.6_/device_CPU_0:z:0"
+      input: "op_/device_CPU_0_6:output:0"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+    }
+  }
+  function {
+    signature {
+      name: "whilecond/main.._12.16.13_/device_CPU_0"
+      input_arg {
+        name: "arg_13"
+        type: DT_FLOAT
+      }
+      input_arg {
+        name: "arg_14"
+        type: DT_INT64
+      }
+      input_arg {
+        name: "arg_15"
+        type: DT_FLOAT
+      }
+      input_arg {
+        name: "arg_16"
+        type: DT_FLOAT
+      }
+      input_arg {
+        name: "arg_17"
+        type: DT_INT64
+      }
+      input_arg {
+        name: "arg_18"
+        type: DT_INT64
+      }
+      output_arg {
+        name: "cast_main___10_16_13__device_cpu_0"
+        type: DT_INT32
+      }
+    }
+    node_def {
+      name: "op/main.._6.16.6_/device_CPU_0"
+      op: "MatMul"
+      input: "arg_13"
+      input: "arg_15"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "transpose_a"
+        value {
+          b: false
+        }
+      }
+      attr {
+        key: "transpose_b"
+        value {
+          b: false
+        }
+      }
+    }
+    node_def {
+      name: "op/main.._7.16.6_/device_CPU_0"
+      op: "Add"
+      input: "op/main.._6.16.6_/device_CPU_0:product:0"
+      input: "arg_16"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "op/main.._8.16.6_/device_CPU_0"
+      op: "Add"
+      input: "arg_14"
+      input: "arg_17"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+    }
+    node_def {
+      name: "op/main.._9.16.6_/device_CPU_0"
+      op: "Less"
+      input: "op/main.._8.16.6_/device_CPU_0:z:0"
+      input: "arg_18"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+    }
+    node_def {
+      name: "cast/main.._10.16.13_/device_CPU_0"
+      op: "Cast"
+      input: "op/main.._9.16.6_/device_CPU_0:z:0"
+      attr {
+        key: "DstT"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "SrcT"
+        value {
+          type: DT_BOOL
+        }
+      }
+    }
+    ret {
+      key: "cast_main___10_16_13__device_cpu_0"
+      value: "cast/main.._10.16.13_/device_CPU_0:y:0"
+    }
+  }
+  function {
+    signature {
+      name: "whilebody/main.._11.16.13_/device_CPU_0"
+      input_arg {
+        name: "arg_7"
+        type: DT_FLOAT
+      }
+      input_arg {
+        name: "arg_8"
+        type: DT_INT64
+      }
+      input_arg {
+        name: "arg_9_0"
+        type: DT_FLOAT
+      }
+      input_arg {
+        name: "arg_10_0"
+        type: DT_FLOAT
+      }
+      input_arg {
+        name: "arg_11_0"
+        type: DT_INT64
+      }
+      input_arg {
+        name: "arg_12_0"
+        type: DT_INT64
+      }
+      output_arg {
+        name: "op_main___3_16_6__device_cpu_0"
+        type: DT_FLOAT
+      }
+      output_arg {
+        name: "op_main___4_16_6__device_cpu_0"
+        type: DT_INT64
+      }
+      output_arg {
+        name: "arg_9"
+        type: DT_FLOAT
+      }
+      output_arg {
+        name: "arg_10"
+        type: DT_FLOAT
+      }
+      output_arg {
+        name: "arg_11"
+        type: DT_INT64
+      }
+      output_arg {
+        name: "arg_12"
+        type: DT_INT64
+      }
+    }
+    node_def {
+      name: "op/main.._2.16.6_/device_CPU_0"
+      op: "MatMul"
+      input: "arg_7"
+      input: "arg_9_0"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "transpose_a"
+        value {
+          b: false
+        }
+      }
+      attr {
+        key: "transpose_b"
+        value {
+          b: false
+        }
+      }
+    }
+    node_def {
+      name: "op/main.._3.16.6_/device_CPU_0"
+      op: "Add"
+      input: "op/main.._2.16.6_/device_CPU_0:product:0"
+      input: "arg_10_0"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "op/main.._4.16.6_/device_CPU_0"
+      op: "Add"
+      input: "arg_8"
+      input: "arg_11_0"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+    }
+    node_def {
+      name: "op/main.._5.16.6_/device_CPU_0"
+      op: "Less"
+      input: "op/main.._4.16.6_/device_CPU_0:z:0"
+      input: "arg_12_0"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+    }
+    ret {
+      key: "arg_10"
+      value: "arg_10_0"
+    }
+    ret {
+      key: "arg_11"
+      value: "arg_11_0"
+    }
+    ret {
+      key: "arg_12"
+      value: "arg_12_0"
+    }
+    ret {
+      key: "arg_9"
+      value: "arg_9_0"
+    }
+    ret {
+      key: "op_main___3_16_6__device_cpu_0"
+      value: "op/main.._3.16.6_/device_CPU_0:z:0"
+    }
+    ret {
+      key: "op_main___4_16_6__device_cpu_0"
+      value: "op/main.._4.16.6_/device_CPU_0:z:0"
+    }
+  }
+}
+versions {
+  producer: 26
+  min_consumer: 12
+}
