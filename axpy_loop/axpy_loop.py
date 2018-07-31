@@ -32,5 +32,5 @@ with ops.Graph().as_default() as g:
         with tf.Session(graph=g) as sess:
             sess.run(y)
     time_this(main)
+    
     tf.train.write_graph(g, '.', 'python_graph.pbtxt')
-
