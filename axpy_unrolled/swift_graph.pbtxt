@@ -1,12 +1,12 @@
 node {
-  name: "tfc_func_S4axpy4mainyyF.tf"
-  op: "S4axpy4mainyyF.tf_CPU.device_partition"
+  name: "tfc_func_S4axpy_unrolled4mainyyF.tf"
+  op: "S4axpy_unrolled4mainyyF.tf_CPU.device_partition"
   device: "/device:CPU:0"
 }
 library {
   function {
     signature {
-      name: "S4axpy4mainyyF.tf_CPU.device_partition"
+      name: "S4axpy_unrolled4mainyyF.tf_CPU.device_partition"
     }
     node_def {
       name: "op/main...16.6_/device_CPU_0"
