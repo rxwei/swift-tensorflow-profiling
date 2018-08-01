@@ -2,7 +2,9 @@
 
 This repository contains pairs of Python TensorFlow programs and Swift TensorFlow programs for a head-to-head performance comparison.
 
-All tests will report the duration of "session run".
+All tests will report the interval between graph launch and graph finish.
+
+**Note**: The timer in Swift will also include graph deserialization time, so comparisons below are not entirely unfair. I'm working to add hooks in the compiler runtime to just time the call to `TF_SessionRun`.
 
 ## My testing environment
 
